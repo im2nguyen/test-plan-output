@@ -56,7 +56,7 @@ jobs:
 
             </details>
 
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`, ErrorCode: \`${{ steps.plan.outputs.exitcode }}\`*`;
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, ErrorCode: ${{ steps.plan.outputs.exitcode }};
 
               
             github.issues.createComment({
