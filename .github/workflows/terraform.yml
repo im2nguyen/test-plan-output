@@ -37,7 +37,7 @@ jobs:
         run: terraform plan -no-color -refresh=true
         continue-on-error: true
       - run: echo "stderr  ${{ steps.plan.outputs.stderr }}"
-      - run: echo "stdout ${{ steps.plan.outputs.stout }}"
+      - run: echo "stdout ${{ steps.plan.outputs.stdout }}"
 
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
