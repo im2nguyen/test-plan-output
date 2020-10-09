@@ -36,7 +36,7 @@ jobs:
         id: plan
         run: terraform plan -no-color -refresh=true || true
         continue-on-error: true
-      - run: echo "outputs  ${{ steps.plan.outputs }}"
+      - run: echo "stderr  ${{ steps.plan.outputs.stderr }}"
       - run: echo "stdout ${{ steps.plan.outputs.stdout }}"
 
       - uses: actions/github-script@0.9.0
@@ -56,7 +56,7 @@ jobs:
 
             </details>
 
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`, ErrorCode: \`${{ steps.plan.outputs.exitcode }}\`*`;
 
               
             github.issues.createComment({
